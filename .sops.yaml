@@ -1,0 +1,3 @@
+creation_rules:
+    - kms: arn:aws:kms:us-west-2:822029040179:key/4f13d912-bf8c-4d83-b27b-53a089eb95bd
+      aws_profile: argocd-kms
