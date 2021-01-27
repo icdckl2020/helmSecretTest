@@ -12,7 +12,5 @@ argocd account update-password --current-password $POD --new-password password
 
 argocd login localhost:8080 --insecure --username admin --password password
 
-argocd app create helm-guestbook --repo https://github.com/argoproj/argo
-cd-example-apps.git --path helm-guestbook --dest-namespace default --dest-server
- https://kubernetes.default.svc --helm-set replicaCount=2
+argocd app create helmSecretChart --repo git@github.com:icdckl2020/helmSecretTest.git --path helmSecretChart --dest-namespace default --dest-server https://kubernetes.default.svc --helm-set replicaCount=1 --file secrets.yaml
 
