@@ -12,5 +12,14 @@ argocd account update-password --current-password $POD --new-password password
 
 argocd login localhost:8080 --insecure --username admin --password password
 
-argocd app create helmSecretChart --repo git@github.com:icdckl2020/helmSecretTest.git --path helmSecretChart --dest-namespace default --dest-server https://kubernetes.default.svc --helm-set replicaCount=1 --file secrets.yaml
+argocd app create helmsecret --repo git@github.com:icdckl2020/helmSecretTest.git --path helmsecret --dest-namespace default --dest-server https://kubernetes.default.svc --helm-set replicaCount=1 --file secrets.yaml
+
+
+
+helm secrets install --name helmsecret helmsecret/ -f helmsecret/secrets.yaml
+
+kubectl -n default get secret test-secret -o yaml
+
+echo cGFzc3dvcmQ= | base64 --decode
+
 
