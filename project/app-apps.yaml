@@ -1,19 +1,19 @@
-apiVersion:  argoproj.io/v1alpha1
-kind:  Application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:  
-  name:  apps 
-  namespace:  argocd
+  name: apps 
+  namespace: argocd
 spec:  
-  project:  default
+  project: default
   source:  
     repoURL: git@github.com:icdckl2020/helmSecretTest.git   
-    targetRevision:  master
-    path:  apps
+    targetRevision: master
+    path: apps
     helm:
       releaseName: apps
   destination:  
-    server:  https://kubernetes.default.svc
-    namespace:  default
+    server: https://kubernetes.default.svc
+    namespace: default
   syncPolicy:
     automated: {}
     syncOptions:
